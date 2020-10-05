@@ -41,6 +41,8 @@ class Vector {
         this.#components = point1.map((v, i) => point2[i]-v);
     }
 
+
+
     //===== New Vector Operations
 
     /**
@@ -92,6 +94,16 @@ class Vector {
         return new Vector(...newComponents);
     }
 
+    /**
+     * Get a copy of this vector
+     * 
+     * @function module:Vectors.Vector~getCopy
+     * @returns {Vector} A copy of this vector
+     */
+    getCopy() {
+        return new Vector(this.#components);
+    }
+
 
     //===== Number Operations
 
@@ -118,6 +130,7 @@ class Vector {
      */
     cross(vect) {
         if (vect.size != this.size) throw new Error("Vectors must have the same dimensions!");
+        return new Vector(); //TODO: add cross product calculation
     }
 
     /**
@@ -195,11 +208,24 @@ class Vector {
     isUnit() {
         return this.magnitude >= 0.9999999 && this.magnitude <= 1.0000001;
     }
+
+    /**
+     * Is this the same as vect?
+     *
+     * @param {Vector} vect
+     * @returns {boolean}
+     */
+    isEqual(vect) {
+        return vect.#components.filter((v, i) => {
+            return v <= this.#components[i]-0.000001 || v >= this.#components[i]+0.000001
+        }).length == 0; //Check within tolerance
+    }
 }
 
 
  /**
   * @constant {VectorConstants} VectorConstants
+  * @static
   * Constant/standard vector constants
   */
  const VectorConstants = {

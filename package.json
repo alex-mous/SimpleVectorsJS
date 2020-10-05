@@ -1,17 +1,12 @@
 {
   "name": "vectors",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Vectors.js is a library to make working with vectors in Node JS easy, including all standard vector operations and properties for n-dimension vectors",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [
     "vector",
-    "vectors",
-    "library",
-    "nodejs"
+    "vectors"
   ],
   "author": "Alex Mous",
-  "license": "ISC"
+  "license": "MIT"
 }
