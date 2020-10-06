@@ -95,13 +95,21 @@ class Vector {
     }
 
     /**
-     * Get a copy of this vector
-     * 
-     * @function module:Simplevectors.Vector~getCopy
-     * @returns {Vector} A copy of this vector
+     * Cross product (3D vectors) of vect with this vector (this x vect)
+     *
+     * @function module:Simplevectors.Vector~cross
+     * @param {Vector} vect Vector to do a cross product with
+     * @returns {Vector} The cross product vector
      */
-    getCopy() {
-        return new Vector(this.#components);
+    cross(vect) {
+        if ((vect.size & this.size) != 3) throw new Error("Vectors must both be 3D!");
+        let a = this.#components;
+        let b = vect.#components;
+        return new Vector(
+            a[1]*b[2]-a[2]*b[1],
+            a[2]*b[0]-a[0]*b[2],
+            a[0]*b[1]-a[1]*b[0]
+        );
     }
 
     /**
@@ -112,6 +120,16 @@ class Vector {
      */
     proj(vect) {
         return this.unit().multiply(this.scal(vect));
+    }
+
+    /**
+     * Get a copy of this vector
+     * 
+     * @function module:Simplevectors.Vector~getCopy
+     * @returns {Vector} A copy of this vector
+     */
+    getCopy() {
+        return new Vector(this.#components);
     }
 
 
@@ -133,21 +151,15 @@ class Vector {
     }
 
     /**
-     * Cross product (3D vectors) of vect with this vector (this x vect)
-     *
-     * @function module:Simplevectors.Vector~cross
-     * @param {Vector} vect Vector to do a cross product with
-     * @returns {Vector} The cross product vector
+     * Get the triple scalar product of this vector, vect1 and vect2 (this•(vect1 x vect2))
+     * 
+     * @function module:Simplevectors.Vector~tripleScalarProduct
+     * @param {Vector} vect1 First vector
+     * @param {Vector} vect2 Second vector
+     * @returns {number} Triple scalar product
      */
-    cross(vect) {
-        if ((vect.size & this.size) != 3) throw new Error("Vectors must both be 3D!");
-        let a = this.#components;
-        let b = vect.#components;
-        return new Vector(
-            a[1]*b[2]-a[2]*b[1],
-            a[2]*b[0]-a[0]*b[2],
-            a[0]*b[1]-a[1]*b[0]
-        );
+    tripleScalarProduct(vect1, vect2) {
+        return this.dot(vect1.cross(vect2));
     }
 
     /**

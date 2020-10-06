@@ -38,6 +38,9 @@ console.log("c x <-1, 2, 1>: ", d.toString());
 let e = a.dot(b);
 console.log("a•b: ", e);
 
+e = c.tripleScalarProduct(new Vector(1,2,0), new Vector(-2,0,1));
+console.log("c•(<1,2,0> x <-2,0,1>): ", e);
+
 e = a.scal(b); //Scalar projection of b onto a
 console.log("Scal_a b: ", e);
 

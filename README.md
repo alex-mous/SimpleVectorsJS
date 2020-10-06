@@ -48,6 +48,9 @@ console.log("c x <-1, 2, 1>: ", d.toString());
 let e = a.dot(b);
 console.log("a•b: ", e);
 
+e = c.tripleScalarProduct(new Vector(1,2,0), new Vector(-2,0,1));
+console.log("c•(<1,2,0> x <-2,0,1>): ", e);
+
 e = a.scal(b); //Scalar projection of b onto a
 console.log("Scal_a b: ", e);
 
@@ -97,10 +100,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             * [~multiply(k)](#module_Simplevectors.Vector..multiply) ⇒ <code>Vector</code>
             * [~add(vect)](#module_Simplevectors.Vector..add) ⇒ <code>Vector</code>
             * [~subtract(vect)](#module_Simplevectors.Vector..subtract) ⇒ <code>Vector</code>
-            * [~getCopy()](#module_Simplevectors.Vector..getCopy) ⇒ <code>Vector</code>
-            * [~proj(vect)](#module_Simplevectors.Vector..proj)
-            * [~dot(vect)](#module_Simplevectors.Vector..dot) ⇒ <code>number</code>
             * [~cross(vect)](#module_Simplevectors.Vector..cross) ⇒ <code>Vector</code>
+            * [~proj(vect)](#module_Simplevectors.Vector..proj)
+            * [~getCopy()](#module_Simplevectors.Vector..getCopy) ⇒ <code>Vector</code>
+            * [~dot(vect)](#module_Simplevectors.Vector..dot) ⇒ <code>number</code>
+            * [~tripleScalarProduct(vect1, vect2)](#module_Simplevectors.Vector..tripleScalarProduct) ⇒ <code>number</code>
             * [~angle(vect)](#module_Simplevectors.Vector..angle) ⇒ <code>number</code>
             * [~scal(vect)](#module_Simplevectors.Vector..scal) ⇒ <code>number</code>
             * [~toString()](#module_Simplevectors.Vector..toString) ⇒ <code>string</code>
@@ -128,10 +132,11 @@ Simplevectors is a library to make working with vectors in Node JS easy, includi
         * [~multiply(k)](#module_Simplevectors.Vector..multiply) ⇒ <code>Vector</code>
         * [~add(vect)](#module_Simplevectors.Vector..add) ⇒ <code>Vector</code>
         * [~subtract(vect)](#module_Simplevectors.Vector..subtract) ⇒ <code>Vector</code>
-        * [~getCopy()](#module_Simplevectors.Vector..getCopy) ⇒ <code>Vector</code>
-        * [~proj(vect)](#module_Simplevectors.Vector..proj)
-        * [~dot(vect)](#module_Simplevectors.Vector..dot) ⇒ <code>number</code>
         * [~cross(vect)](#module_Simplevectors.Vector..cross) ⇒ <code>Vector</code>
+        * [~proj(vect)](#module_Simplevectors.Vector..proj)
+        * [~getCopy()](#module_Simplevectors.Vector..getCopy) ⇒ <code>Vector</code>
+        * [~dot(vect)](#module_Simplevectors.Vector..dot) ⇒ <code>number</code>
+        * [~tripleScalarProduct(vect1, vect2)](#module_Simplevectors.Vector..tripleScalarProduct) ⇒ <code>number</code>
         * [~angle(vect)](#module_Simplevectors.Vector..angle) ⇒ <code>number</code>
         * [~scal(vect)](#module_Simplevectors.Vector..scal) ⇒ <code>number</code>
         * [~toString()](#module_Simplevectors.Vector..toString) ⇒ <code>string</code>
@@ -233,13 +238,18 @@ Subtract vect from this vector
 | --- | --- | --- |
 | vect | <code>Vector</code> | Vector to subtract from this |
 
-<a name="module_Simplevectors.Vector..getCopy"></a>
+<a name="module_Simplevectors.Vector..cross"></a>
 
-#### Vector~getCopy() ⇒ <code>Vector</code>
-Get a copy of this vector
+#### Vector~cross(vect) ⇒ <code>Vector</code>
+Cross product (3D vectors) of vect with this vector (this x vect)
 
 **Kind**: inner method of [<code>Vector</code>](#module_Simplevectors.Vector)  
-**Returns**: <code>Vector</code> - A copy of this vector  
+**Returns**: <code>Vector</code> - The cross product vector  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| vect | <code>Vector</code> | Vector to do a cross product with |
+
 <a name="module_Simplevectors.Vector..proj"></a>
 
 #### Vector~proj(vect)
@@ -251,6 +261,13 @@ Vector projection of vect onto this vector
 | --- | --- |
 | vect | <code>Vector</code> | 
 
+<a name="module_Simplevectors.Vector..getCopy"></a>
+
+#### Vector~getCopy() ⇒ <code>Vector</code>
+Get a copy of this vector
+
+**Kind**: inner method of [<code>Vector</code>](#module_Simplevectors.Vector)  
+**Returns**: <code>Vector</code> - A copy of this vector  
 <a name="module_Simplevectors.Vector..dot"></a>
 
 #### Vector~dot(vect) ⇒ <code>number</code>
@@ -263,17 +280,18 @@ Dot product
 | --- | --- | --- |
 | vect | <code>Vector</code> | Vector to do a dot product with |
 
-<a name="module_Simplevectors.Vector..cross"></a>
+<a name="module_Simplevectors.Vector..tripleScalarProduct"></a>
 
-#### Vector~cross(vect) ⇒ <code>Vector</code>
-Cross product (3D vectors) of vect with this vector (this x vect)
+#### Vector~tripleScalarProduct(vect1, vect2) ⇒ <code>number</code>
+Get the triple scalar product of this vector, vect1 and vect2 (this•(vect1 x vect2))
 
 **Kind**: inner method of [<code>Vector</code>](#module_Simplevectors.Vector)  
-**Returns**: <code>Vector</code> - The cross product vector  
+**Returns**: <code>number</code> - Triple scalar product  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| vect | <code>Vector</code> | Vector to do a cross product with |
+| vect1 | <code>Vector</code> | First vector |
+| vect2 | <code>Vector</code> | Second vector |
 
 <a name="module_Simplevectors.Vector..angle"></a>
 
