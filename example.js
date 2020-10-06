@@ -3,10 +3,9 @@ let { Vector, VectorConstants } = require("./index.js");
 //Exampe: Creating vectors
 let a = new Vector(2, 0.5); //Create a new vector with components <-1, -1>
 let b = new Vector();
-b.fromTwoPoints([0,0],[-2,2]); //Set this vector from two points
+b.fromMagnitudeAngle2D(10, Math.PI); //Set this vector from a magnitude and a direction (2D only)
 let c = new Vector();
-c.fromMagnitudeAngle2D(10, Math.PI); //Set this vector from a magnitude and a direction (2D only)
-
+c.fromTwoPoints([0,0,0],[-2,2,1]); //Set this vector from two points
 
 
 //Example: Basic vector operations
@@ -33,8 +32,8 @@ console.log("5*(a/|a|): ", d.toString());
 
 
 //Example: More vector operations
-d = a.cross(b);
-console.log("a x b: ", d.toString());
+d = c.cross(new Vector(-1,2,1));
+console.log("c x <-1, 2, 1>: ", d.toString());
 
 let e = a.dot(b);
 console.log("a•b: ", e);

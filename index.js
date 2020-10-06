@@ -133,30 +133,33 @@ class Vector {
     }
 
     /**
-     * Cross product
+     * Cross product (3D vectors) of vect with this vector (this x vect)
      *
      * @function module:Simplevectors.Vector~cross
      * @param {Vector} vect Vector to do a cross product with
-     * @returns {Vector} The unit vector
+     * @returns {Vector} The cross product vector
      */
     cross(vect) {
-        if (vect.size != this.size) throw new Error("Vectors must have the same dimensions!");
-        return new Vector(); //TODO: add cross product calculation
+        if ((vect.size & this.size) != 3) throw new Error("Vectors must both be 3D!");
+        let a = this.#components;
+        let b = vect.#components;
+        return new Vector(
+            a[1]*b[2]-a[2]*b[1],
+            a[2]*b[0]-a[0]*b[2],
+            a[0]*b[1]-a[1]*b[0]
+        );
     }
 
     /**
-     * Angle between this vector and vect
+     * Angle between this vector and vect (0 <= angle <= PI)
      * 
      * @function module:Simplevectors.Vector~angle
      * @param {Vector} vect Vector to calculate angle between
-     * @returns {number} Angle
+     * @returns {number} Angle (0 <= theta <= PI)
      */
     angle(vect) {
         if (vect.size != this.size) throw new Error("Vectors must have the same dimensions!");
-        let ref = Math.acos(this.dot(vect)/(this.magnitude * vect.magnitude));
-
-        //TODO: compensate for angles > PI!
-        return ref;
+        return Math.acos(this.dot(vect)/(this.magnitude * vect.magnitude));
     }
 
     /**
