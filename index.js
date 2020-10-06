@@ -104,6 +104,17 @@ class Vector {
         return new Vector(this.#components);
     }
 
+    /**
+     * Vector projection of vect onto this vector
+     * 
+     * @function module:Simplevectors.Vector~proj
+     * @param {Vector} vect 
+     */
+    proj(vect) {
+        return this.unit().multiply(this.scal(vect));
+    }
+
+
 
     //===== Number Operations
 
@@ -146,6 +157,17 @@ class Vector {
 
         //TODO: compensate for angles > PI!
         return ref;
+    }
+
+    /**
+     * Scalar projection of vect onto this vector
+     * 
+     * @function module:Simplevectors.Vector~scal
+     * @param {Vector} vect
+     * @returns {number} Projection
+     */
+    scal(vect) {
+        return this.dot(vect)/this.magnitude;
     }
 
     //===== Get Parameters Operations

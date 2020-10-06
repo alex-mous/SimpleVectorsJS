@@ -1,9 +1,9 @@
 let { Vector, VectorConstants } = require("./index.js");
 
 //Exampe: Creating vectors
-let a = new Vector(-1,-1); //Create a new vector with components <-1, -1>
+let a = new Vector(2, 0.5); //Create a new vector with components <-1, -1>
 let b = new Vector();
-b.fromTwoPoints([0,0],[2,2]); //Set this vector from two points
+b.fromTwoPoints([0,0],[-2,2]); //Set this vector from two points
 let c = new Vector();
 c.fromMagnitudeAngle2D(10, Math.PI); //Set this vector from a magnitude and a direction (2D only)
 
@@ -39,6 +39,11 @@ console.log("a x b: ", d.toString());
 let e = a.dot(b);
 console.log("a•b: ", e);
 
+e = a.scal(b); //Scalar projection of b onto a
+console.log("Scal_a b: ", e);
+
+d = a.proj(b); //Vector projection of b onto a
+console.log("Scal_a b: ", d.toString());
 
 e = b.angle(a); //Angle between a and b
 console.log("Absolute angle between a and b: ", e);
@@ -52,3 +57,5 @@ console.log("Magnitude of a: ", a.magnitude);
 console.log("Number of components in a: ", a.size);
 console.log("Is unit vector? a/|a|: ", a.multiply(1/a.magnitude).isUnit());
 console.log("Is equal vector? a/|a|==a: ", a.unit().isEqual(a));
+
+

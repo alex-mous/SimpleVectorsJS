@@ -5,18 +5,18 @@
 `npm install simplevectorsjs`
 
 ## Usage
-Creating a vector:
+#### Creating a vector
 ```
 let { Vector, VectorConstants } = require("simplevectorsjs");
 
-let a = new Vector(-1,-1); //Create a new vector with components <-1, -1>
+let a = new Vector(2, 0.5); //Create a new vector with components <-1, -1>
 let b = new Vector();
-b.fromTwoPoints([0,0],[2,2]); //Set this vector from two points
+b.fromTwoPoints([0,0],[-2,2]); //Set this vector from two points
 let c = new Vector();
 c.fromMagnitudeAngle2D(10, Math.PI); //Set this vector from a magnitude and a direction (2D only)
 ```
 
-Basic vector operations
+#### Basic vector operations
 ```
 let d = a.add(b); //Add b to a
 console.log("a+b: ", d.toString());
@@ -28,7 +28,7 @@ d = b.multiply(5); //Multiply a by a scalar
 console.log("5*b: ", d.toString());
 ```
 
-Getting the direction/unit vector and changing the vector's magnitude
+#### Getting the direction/unit vector and changing the vector's magnitude
 ```
 d = a.unit(); //Get the unit vector
 d = d.multiply(10); //And scale to 5
@@ -40,7 +40,7 @@ console.log("5*(a/|a|): ", d.toString());
 ```
 
 
-More vector operations
+#### More vector operations
 ```
 d = a.cross(b);
 console.log("a x b: ", d.toString());
@@ -48,6 +48,11 @@ console.log("a x b: ", d.toString());
 let e = a.dot(b);
 console.log("a•b: ", e);
 
+e = a.scal(b); //Scalar projection of b onto a
+console.log("Scal_a b: ", e);
+
+d = a.proj(b); //Vector projection of b onto a
+console.log("Scal_a b: ", d.toString());
 
 e = b.angle(a); //Angle between a and b
 console.log("Absolute angle between a and b: ", e);
@@ -56,7 +61,7 @@ e = a.angle(VectorConstants.D2.i); //Angle between b and positive x-axis
 console.log("Absolute angle between a and positive x-axis (i): ", e);
 ```
 
-Vector properties
+#### Vector properties
 ```
 console.log("Magnitude of a: ", a.magnitude);
 console.log("Number of components in a: ", a.size);
@@ -76,6 +81,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ## Documentation
 <a name="module_Simplevectors"></a>
 
+<a name="module_Simplevectors"></a>
+
 ## Simplevectors
 
 * [Simplevectors](#module_Simplevectors)
@@ -93,9 +100,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             * [~add(vect)](#module_Simplevectors.Vector..add) ⇒ <code>Vector</code>
             * [~subtract(vect)](#module_Simplevectors.Vector..subtract) ⇒ <code>Vector</code>
             * [~getCopy()](#module_Simplevectors.Vector..getCopy) ⇒ <code>Vector</code>
+            * [~proj(vect)](#module_Simplevectors.Vector..proj)
             * [~dot(vect)](#module_Simplevectors.Vector..dot) ⇒ <code>number</code>
             * [~cross(vect)](#module_Simplevectors.Vector..cross) ⇒ <code>Vector</code>
             * [~angle(vect)](#module_Simplevectors.Vector..angle) ⇒ <code>number</code>
+            * [~scal(vect)](#module_Simplevectors.Vector..scal) ⇒ <code>number</code>
             * [~toString()](#module_Simplevectors.Vector..toString) ⇒ <code>string</code>
             * [~isUnit()](#module_Simplevectors.Vector..isUnit) ⇒ <code>boolean</code>
             * [~isEqual(vect)](#module_Simplevectors.Vector..isEqual) ⇒ <code>boolean</code>
@@ -122,9 +131,11 @@ Simplevectors is a library to make working with vectors in Node JS easy, includi
         * [~add(vect)](#module_Simplevectors.Vector..add) ⇒ <code>Vector</code>
         * [~subtract(vect)](#module_Simplevectors.Vector..subtract) ⇒ <code>Vector</code>
         * [~getCopy()](#module_Simplevectors.Vector..getCopy) ⇒ <code>Vector</code>
+        * [~proj(vect)](#module_Simplevectors.Vector..proj)
         * [~dot(vect)](#module_Simplevectors.Vector..dot) ⇒ <code>number</code>
         * [~cross(vect)](#module_Simplevectors.Vector..cross) ⇒ <code>Vector</code>
         * [~angle(vect)](#module_Simplevectors.Vector..angle) ⇒ <code>number</code>
+        * [~scal(vect)](#module_Simplevectors.Vector..scal) ⇒ <code>number</code>
         * [~toString()](#module_Simplevectors.Vector..toString) ⇒ <code>string</code>
         * [~isUnit()](#module_Simplevectors.Vector..isUnit) ⇒ <code>boolean</code>
         * [~isEqual(vect)](#module_Simplevectors.Vector..isEqual) ⇒ <code>boolean</code>
@@ -231,6 +242,17 @@ Get a copy of this vector
 
 **Kind**: inner method of [<code>Vector</code>](#module_Simplevectors.Vector)  
 **Returns**: <code>Vector</code> - A copy of this vector  
+<a name="module_Simplevectors.Vector..proj"></a>
+
+#### Vector~proj(vect)
+Vector projection of vect onto this vector
+
+**Kind**: inner method of [<code>Vector</code>](#module_Simplevectors.Vector)  
+
+| Param | Type |
+| --- | --- |
+| vect | <code>Vector</code> | 
+
 <a name="module_Simplevectors.Vector..dot"></a>
 
 #### Vector~dot(vect) ⇒ <code>number</code>
@@ -266,6 +288,18 @@ Angle between this vector and vect
 | Param | Type | Description |
 | --- | --- | --- |
 | vect | <code>Vector</code> | Vector to calculate angle between |
+
+<a name="module_Simplevectors.Vector..scal"></a>
+
+#### Vector~scal(vect) ⇒ <code>number</code>
+Scalar projection of vect onto this vector
+
+**Kind**: inner method of [<code>Vector</code>](#module_Simplevectors.Vector)  
+**Returns**: <code>number</code> - Projection  
+
+| Param | Type |
+| --- | --- |
+| vect | <code>Vector</code> | 
 
 <a name="module_Simplevectors.Vector..toString"></a>
 
