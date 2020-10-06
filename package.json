@@ -1,11 +1,19 @@
 {
   "name": "simplevectorsjs",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "SimpleVectorsJS is a library to make working with vectors in Node JS easy, including all standard vector operations and properties for n-dimension vectors",
   "main": "index.js",
   "keywords": [
     "vector",
-    "vectors"
+    "vectors",
+    "vector2d",
+    "vector3d",
+    "math",
+    "geometry",
+    "2d",
+    "3d",
+    "linear",
+    "distance"
   ],
   "author": "Alex Mous",
   "license": "MIT"

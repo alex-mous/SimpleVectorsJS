@@ -4,7 +4,7 @@
 ## Installation
 `npm install simplevectorsjs`
 
-## Example
+## Usage
 Creating a vector:
 ```
 let { Vector, VectorConstants } = require("simplevectorsjs");
@@ -64,9 +64,6 @@ console.log("Is unit vector? a/|a|: ", a.multiply(1/a.magnitude).isUnit());
 console.log("Is equal vector? a/|a|==a: ", a.unit().isEqual(a));
 ```
 
-## Usage
-See the documentation in <a href="Documentation.md">Documentation.md</a> for documentation of each method
-
 ## License
 Copyright 2020 Alex Mous
 
@@ -75,3 +72,226 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+## Documentation
+<a name="module_Simplevectors"></a>
+
+## Simplevectors
+
+* [Simplevectors](#module_Simplevectors)
+    * [.Vector](#module_Simplevectors.Vector)
+        * [new Vector(...components)](#new_module_Simplevectors.Vector_new)
+        * _static_
+            * [.Vector#magnitude](#module_Simplevectors.Vector.Vector+magnitude) : <code>number</code>
+            * [.Vector#size](#module_Simplevectors.Vector.Vector+size) : <code>number</code>
+            * [.Vector#magnitude](#module_Simplevectors.Vector.Vector+magnitude) : <code>number</code>
+        * _inner_
+            * [~fromMagnitudeAngle2D(magnitude, angle)](#module_Simplevectors.Vector..fromMagnitudeAngle2D)
+            * [~fromMagnitudeAngle2D(point1, point2)](#module_Simplevectors.Vector..fromMagnitudeAngle2D)
+            * [~unit()](#module_Simplevectors.Vector..unit) ⇒ <code>Vector</code>
+            * [~multiply(k)](#module_Simplevectors.Vector..multiply) ⇒ <code>Vector</code>
+            * [~add(vect)](#module_Simplevectors.Vector..add) ⇒ <code>Vector</code>
+            * [~subtract(vect)](#module_Simplevectors.Vector..subtract) ⇒ <code>Vector</code>
+            * [~getCopy()](#module_Simplevectors.Vector..getCopy) ⇒ <code>Vector</code>
+            * [~dot(vect)](#module_Simplevectors.Vector..dot) ⇒ <code>number</code>
+            * [~cross(vect)](#module_Simplevectors.Vector..cross) ⇒ <code>Vector</code>
+            * [~angle(vect)](#module_Simplevectors.Vector..angle) ⇒ <code>number</code>
+            * [~toString()](#module_Simplevectors.Vector..toString) ⇒ <code>string</code>
+            * [~isUnit()](#module_Simplevectors.Vector..isUnit) ⇒ <code>boolean</code>
+            * [~isEqual(vect)](#module_Simplevectors.Vector..isEqual) ⇒ <code>boolean</code>
+    * [.VectorConstants](#module_Simplevectors.VectorConstants) : <code>VectorConstants</code>
+
+<a name="module_Simplevectors.Vector"></a>
+
+### Simplevectors.Vector
+Simplevectors is a library to make working with vectors in Node JS easy, including all standard vector operations and properties for n-dimension vectors
+
+**Kind**: static class of [<code>Simplevectors</code>](#module_Simplevectors)  
+
+* [.Vector](#module_Simplevectors.Vector)
+    * [new Vector(...components)](#new_module_Simplevectors.Vector_new)
+    * _static_
+        * [.Vector#magnitude](#module_Simplevectors.Vector.Vector+magnitude) : <code>number</code>
+        * [.Vector#size](#module_Simplevectors.Vector.Vector+size) : <code>number</code>
+        * [.Vector#magnitude](#module_Simplevectors.Vector.Vector+magnitude) : <code>number</code>
+    * _inner_
+        * [~fromMagnitudeAngle2D(magnitude, angle)](#module_Simplevectors.Vector..fromMagnitudeAngle2D)
+        * [~fromMagnitudeAngle2D(point1, point2)](#module_Simplevectors.Vector..fromMagnitudeAngle2D)
+        * [~unit()](#module_Simplevectors.Vector..unit) ⇒ <code>Vector</code>
+        * [~multiply(k)](#module_Simplevectors.Vector..multiply) ⇒ <code>Vector</code>
+        * [~add(vect)](#module_Simplevectors.Vector..add) ⇒ <code>Vector</code>
+        * [~subtract(vect)](#module_Simplevectors.Vector..subtract) ⇒ <code>Vector</code>
+        * [~getCopy()](#module_Simplevectors.Vector..getCopy) ⇒ <code>Vector</code>
+        * [~dot(vect)](#module_Simplevectors.Vector..dot) ⇒ <code>number</code>
+        * [~cross(vect)](#module_Simplevectors.Vector..cross) ⇒ <code>Vector</code>
+        * [~angle(vect)](#module_Simplevectors.Vector..angle) ⇒ <code>number</code>
+        * [~toString()](#module_Simplevectors.Vector..toString) ⇒ <code>string</code>
+        * [~isUnit()](#module_Simplevectors.Vector..isUnit) ⇒ <code>boolean</code>
+        * [~isEqual(vect)](#module_Simplevectors.Vector..isEqual) ⇒ <code>boolean</code>
+
+<a name="new_module_Simplevectors.Vector_new"></a>
+
+#### new Vector(...components)
+Vector class
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| ...components | <code>number</code> | Components of the vector to construct |
+
+<a name="module_Simplevectors.Vector.Vector+magnitude"></a>
+
+#### Vector.Vector#magnitude : <code>number</code>
+Get the magnitude of the vector
+
+**Kind**: static property of [<code>Vector</code>](#module_Simplevectors.Vector)  
+<a name="module_Simplevectors.Vector.Vector+size"></a>
+
+#### Vector.Vector#size : <code>number</code>
+Get the number of components of the vector
+
+**Kind**: static property of [<code>Vector</code>](#module_Simplevectors.Vector)  
+<a name="module_Simplevectors.Vector.Vector+magnitude"></a>
+
+#### Vector.Vector#magnitude : <code>number</code>
+Set the new magnitude
+
+**Kind**: static property of [<code>Vector</code>](#module_Simplevectors.Vector)  
+<a name="module_Simplevectors.Vector..fromMagnitudeAngle2D"></a>
+
+#### Vector~fromMagnitudeAngle2D(magnitude, angle)
+Set this vector from magnitude and angle from positive x-axis in 2D
+
+**Kind**: inner method of [<code>Vector</code>](#module_Simplevectors.Vector)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| magnitude | <code>number</code> | Magnitude |
+| angle | <code>number</code> | Angle (radians) |
+
+<a name="module_Simplevectors.Vector..fromMagnitudeAngle2D"></a>
+
+#### Vector~fromMagnitudeAngle2D(point1, point2)
+Set this vector from the difference between two points
+
+**Kind**: inner method of [<code>Vector</code>](#module_Simplevectors.Vector)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| point1 | <code>Array.&lt;number&gt;</code> | Point 1 (array of distance in each dimension) |
+| point2 | <code>Array.&lt;number&gt;</code> | Point 2 (same number of dimensions as Point 1) |
+
+<a name="module_Simplevectors.Vector..unit"></a>
+
+#### Vector~unit() ⇒ <code>Vector</code>
+Unit vector
+
+**Kind**: inner method of [<code>Vector</code>](#module_Simplevectors.Vector)  
+**Returns**: <code>Vector</code> - The unit vector  
+<a name="module_Simplevectors.Vector..multiply"></a>
+
+#### Vector~multiply(k) ⇒ <code>Vector</code>
+Scalar multiplication
+
+**Kind**: inner method of [<code>Vector</code>](#module_Simplevectors.Vector)  
+**Returns**: <code>Vector</code> - Scaled vector  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| k | <code>number</code> | Scalar k to multiply vector by |
+
+<a name="module_Simplevectors.Vector..add"></a>
+
+#### Vector~add(vect) ⇒ <code>Vector</code>
+Add vect to this vector
+
+**Kind**: inner method of [<code>Vector</code>](#module_Simplevectors.Vector)  
+**Returns**: <code>Vector</code> - New vector  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| vect | <code>Vector</code> | Vector to add to this |
+
+<a name="module_Simplevectors.Vector..subtract"></a>
+
+#### Vector~subtract(vect) ⇒ <code>Vector</code>
+Subtract vect from this vector
+
+**Kind**: inner method of [<code>Vector</code>](#module_Simplevectors.Vector)  
+**Returns**: <code>Vector</code> - Difference between this and vect  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| vect | <code>Vector</code> | Vector to subtract from this |
+
+<a name="module_Simplevectors.Vector..getCopy"></a>
+
+#### Vector~getCopy() ⇒ <code>Vector</code>
+Get a copy of this vector
+
+**Kind**: inner method of [<code>Vector</code>](#module_Simplevectors.Vector)  
+**Returns**: <code>Vector</code> - A copy of this vector  
+<a name="module_Simplevectors.Vector..dot"></a>
+
+#### Vector~dot(vect) ⇒ <code>number</code>
+Dot product
+
+**Kind**: inner method of [<code>Vector</code>](#module_Simplevectors.Vector)  
+**Returns**: <code>number</code> - The dot product of the two vectors  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| vect | <code>Vector</code> | Vector to do a dot product with |
+
+<a name="module_Simplevectors.Vector..cross"></a>
+
+#### Vector~cross(vect) ⇒ <code>Vector</code>
+Cross product
+
+**Kind**: inner method of [<code>Vector</code>](#module_Simplevectors.Vector)  
+**Returns**: <code>Vector</code> - The unit vector  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| vect | <code>Vector</code> | Vector to do a cross product with |
+
+<a name="module_Simplevectors.Vector..angle"></a>
+
+#### Vector~angle(vect) ⇒ <code>number</code>
+Angle between this vector and vect
+
+**Kind**: inner method of [<code>Vector</code>](#module_Simplevectors.Vector)  
+**Returns**: <code>number</code> - Angle  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| vect | <code>Vector</code> | Vector to calculate angle between |
+
+<a name="module_Simplevectors.Vector..toString"></a>
+
+#### Vector~toString() ⇒ <code>string</code>
+Get the string representation of the vector
+
+**Kind**: inner method of [<code>Vector</code>](#module_Simplevectors.Vector)  
+**Returns**: <code>string</code> - Vector as a string  
+<a name="module_Simplevectors.Vector..isUnit"></a>
+
+#### Vector~isUnit() ⇒ <code>boolean</code>
+Is this a unit vector?
+
+**Kind**: inner method of [<code>Vector</code>](#module_Simplevectors.Vector)  
+<a name="module_Simplevectors.Vector..isEqual"></a>
+
+#### Vector~isEqual(vect) ⇒ <code>boolean</code>
+Is this the same as vect?
+
+**Kind**: inner method of [<code>Vector</code>](#module_Simplevectors.Vector)  
+
+| Param | Type |
+| --- | --- |
+| vect | <code>Vector</code> | 
+
+<a name="module_Simplevectors.VectorConstants"></a>
+
+### Simplevectors.VectorConstants : <code>VectorConstants</code>
+**Kind**: static constant of [<code>Simplevectors</code>](#module_Simplevectors)  
