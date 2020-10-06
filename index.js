@@ -1,12 +1,12 @@
 /**
- * @module Vectors
+ * @module Simplevectors
  */
 
 /**
 * Vector class
-* @memberof module:Vectors
+* @memberof module:Simplevectors
 * @class Vector
-* @classdesc Vectors.js is a library to make working with vectors in Node JS easy, including all standard vector operations and properties for n-dimension vectors
+* @classdesc Simplevectors is a library to make working with vectors in Node JS easy, including all standard vector operations and properties for n-dimension vectors
 * @constructor
 * @param  {...number} components Components of the vector to construct
 */
@@ -20,7 +20,7 @@ class Vector {
     /**
      * Set this vector from magnitude and angle from positive x-axis in 2D
      *
-     * @function module:Vectors.Vector~fromMagnitudeAngle2D
+     * @function module:Simplevectors.Vector~fromMagnitudeAngle2D
      * @param {number} magnitude Magnitude
      * @param {number} angle Angle (radians)
      */
@@ -32,7 +32,7 @@ class Vector {
     /**
      * Set this vector from the difference between two points
      *
-     * @function module:Vectors.Vector~fromMagnitudeAngle2D
+     * @function module:Simplevectors.Vector~fromMagnitudeAngle2D
      * @param {Array<number>} point1 Point 1 (array of distance in each dimension)
      * @param {Array<number>} point2 Point 2 (same number of dimensions as Point 1)
      */
@@ -48,7 +48,7 @@ class Vector {
     /**
      * Unit vector
      *
-     * @function module:Vectors.Vector~unit
+     * @function module:Simplevectors.Vector~unit
      * @returns {Vector} The unit vector
      */
     unit() {
@@ -59,7 +59,7 @@ class Vector {
     /**
      * Scalar multiplication
      *
-     * @function module:Vectors.Vector~multiply
+     * @function module:Simplevectors.Vector~multiply
      * @param {number} k Scalar k to multiply vector by
      * @returns {Vector} Scaled vector
      */
@@ -71,7 +71,7 @@ class Vector {
     /**
      * Add vect to this vector
      * 
-     * @function module:Vectors.Vector~add
+     * @function module:Simplevectors.Vector~add
      * @param {Vector} vect Vector to add to this
      * @returns {Vector} New vector
      */
@@ -84,7 +84,7 @@ class Vector {
     /**
      * Subtract vect from this vector
      * 
-     * @function module:Vectors.Vector~subtract
+     * @function module:Simplevectors.Vector~subtract
      * @param {Vector} vect Vector to subtract from this
      * @returns {Vector} Difference between this and vect
      */
@@ -97,7 +97,7 @@ class Vector {
     /**
      * Get a copy of this vector
      * 
-     * @function module:Vectors.Vector~getCopy
+     * @function module:Simplevectors.Vector~getCopy
      * @returns {Vector} A copy of this vector
      */
     getCopy() {
@@ -110,7 +110,7 @@ class Vector {
     /**
      * Dot product
      *
-     * @function module:Vectors.Vector~dot
+     * @function module:Simplevectors.Vector~dot
      * @param {Vector} vect Vector to do a dot product with
      * @returns {number} The dot product of the two vectors
      */
@@ -124,7 +124,7 @@ class Vector {
     /**
      * Cross product
      *
-     * @function module:Vectors.Vector~cross
+     * @function module:Simplevectors.Vector~cross
      * @param {Vector} vect Vector to do a cross product with
      * @returns {Vector} The unit vector
      */
@@ -136,7 +136,7 @@ class Vector {
     /**
      * Angle between this vector and vect
      * 
-     * @function module:Vectors.Vector~angle
+     * @function module:Simplevectors.Vector~angle
      * @param {Vector} vect Vector to calculate angle between
      * @returns {number} Angle
      */
@@ -152,7 +152,7 @@ class Vector {
     /**
      * Get the magnitude of the vector
      * 
-     * @memberof module:Vectors.Vector
+     * @memberof module:Simplevectors.Vector
      * @type {number}
      */
     get magnitude() {
@@ -169,7 +169,7 @@ class Vector {
     /**
      * Get the number of components of the vector
      * 
-     * @memberof module:Vectors.Vector
+     * @memberof module:Simplevectors.Vector
      * @type {number}
      */
     get size() {
@@ -179,7 +179,7 @@ class Vector {
     /**
      * Get the string representation of the vector
      * 
-     * @function module:Vectors.Vector~toString
+     * @function module:Simplevectors.Vector~toString
      * @returns {string} Vector as a string
      */
     toString() {
@@ -192,7 +192,7 @@ class Vector {
     /**
      * Set the new magnitude
      * 
-     * @memberof module:Vectors.Vector
+     * @memberof module:Simplevectors.Vector
      * @type {number}
      */
     set magnitude(k) {
@@ -203,6 +203,7 @@ class Vector {
     /**
      * Is this a unit vector?
      *
+     * @function module:Simplevectors.Vector~isUnit
      * @returns {boolean}
      */
     isUnit() {
@@ -212,6 +213,7 @@ class Vector {
     /**
      * Is this the same as vect?
      *
+     * @function module:Simplevectors.Vector~isEqual
      * @param {Vector} vect
      * @returns {boolean}
      */

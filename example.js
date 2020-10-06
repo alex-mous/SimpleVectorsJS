@@ -1,4 +1,4 @@
-let { Vector, VectorConstants } = require("./index.js");
+let { Vector, VectorConstants } = require("simplevectors");
 
 //Exampe: Creating vectors
 let a = new Vector(-1,-1); //Create a new vector with components <-1, -1>
