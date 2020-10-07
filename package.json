@@ -1,6 +1,6 @@
 {
   "name": "simplevectorsjs",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "SimpleVectorsJS is a library to make working with vectors in Node JS easy, including all standard vector operations and properties for n-dimension vectors",
   "main": "index.js",
   "keywords": [

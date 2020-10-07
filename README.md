@@ -55,7 +55,7 @@ e = a.scal(b); //Scalar projection of b onto a
 console.log("Scal_a b: ", e);
 
 d = a.proj(b); //Vector projection of b onto a
-console.log("Scal_a b: ", d.toString());
+console.log("Vect_a b: ", d.toString());
 
 e = b.angle(a); //Angle between a and b
 console.log("Absolute angle between a and b: ", e);

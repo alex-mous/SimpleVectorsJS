@@ -182,7 +182,7 @@ class Vector {
      * @returns {number} Projection
      */
     scal(vect) {
-        return this.dot(vect)/this.magnitude;
+        return this.dot(vect)/vect.magnitude;
     }
 
     //===== Get Parameters Operations
